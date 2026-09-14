@@ -46,6 +46,21 @@ class SecurityControllerTest {
     }
 
     @Test
+    void createsExactProductionPayloadWith201() throws Exception {
+        Security security = new Security("ABC", "ABC Test Company", "NSE");
+        when(service.create("ABC", "ABC Test Company", "NSE")).thenReturn(security);
+
+        mockMvc.perform(post("/api/securities")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content("{\"symbol\":\"ABC\",\"companyName\":\"ABC Test Company\",\"exchange\":\"NSE\"}"))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.symbol").value("ABC"))
+                .andExpect(jsonPath("$.companyName").value("ABC Test Company"))
+                .andExpect(jsonPath("$.exchange").value("NSE"));
+    }
+
+    @Test
     void rejectsInvalidSecurityInput() throws Exception {
         mockMvc.perform(post("/api/securities")
                         .contentType(MediaType.APPLICATION_JSON)
