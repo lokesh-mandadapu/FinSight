@@ -44,7 +44,7 @@ npm run dev
 
 Set `FRONTEND_ORIGINS` to a comma-separated list when the frontend is hosted somewhere other than the local Vite origins.
 
-For deployment, set `DATABASE_URL`, `DB_USERNAME`, `DB_PASSWORD`, `SERVER_PORT`, `FRONTEND_ORIGINS`, and `VITE_API_BASE_URL` through the hosting platform's environment configuration. The React production build can be served by a static host such as Vercel, while the Spring Boot service connects to managed PostgreSQL.
+For deployment, set `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `SERVER_PORT`, `FRONTEND_ORIGINS`, and `VITE_API_BASE_URL` through the hosting platform's environment configuration. For Neon, use a JDBC URL for `neondb` with `sslmode=require`. The React production build can be served by a static host such as Vercel, while the Spring Boot service connects to managed PostgreSQL.
 
 ## Backtesting methodology
 
