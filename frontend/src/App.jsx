@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 
-const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+const API = import.meta.env.VITE_API_BASE_URL;
 const DEFAULTS = { symbol: "RELIANCE", from: "2026-08-01", to: "2026-08-31" };
 const NAV_ITEMS = [
   { id: "Overview", label: "Overview" },
